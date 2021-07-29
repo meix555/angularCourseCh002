@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <input type="text" id="username" [(ngModel)]="username" />
+
+      <div>{{ username }}</div>
+
+      <button
+        type="button"
+        [disabled]="!username"
+        (click)="onClickedCLearButton()"
+      >
+        Clear username
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<label>Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)" />
+
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add Server
+</button>
+
+<button class="btn btn-primary" (click)="onToggleDetails()">
+  Toggle details
+</button>
+
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName"
+  (change)="serverCreated = false"
+/>
+
+<p>{{ serverName }}</p>
+
+<p [innerText]="allowNewServer"></p>
+<!-- <p>{{serverCreationStatus}}</p> -->
+
+<p *ngIf="serverCreated">Server was created, server was {{ serverName }}</p>
+
+<!--
+<div [hidden]="!showingDetails">
+  <h3>These are the details</h3>
+  <p>Secret password = 123456</p>
+</div>
+-->
+
+<div *ngIf="!showingDetails">
+  <h3>These are the details</h3>
+  <p>Secret password = 123456</p>
+</div>
+
+<div *ngFor="let count of toggleButtonClicks; let i = index">
+  <p
+    [ngStyle]="count >= 5 ? { backgroundColor: 'blue' } : { backgroundColor: 'white' }"
+    [ngClass]="count >= 5 ? 'whiteText' : 'blackText'"
+  >
+    {{ count }} - {{i}}
+  </p>
+</div>
+
+<app-server *ngFor="let server of servers"></app-server>

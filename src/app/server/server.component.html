@@ -1,0 +1,9 @@
+<p [ngStyle]="{ backgroundColor: getColor() }" [ngClass]="getCssClass()">
+  {{ "The server " }} with id {{ getId() }} has the status {{ getStatus() }}
+</p>
+
+<!--
+<p [ngClass]="{ boldText: getStatus() === 'online' }">
+  That's great!
+</p>
+-->
